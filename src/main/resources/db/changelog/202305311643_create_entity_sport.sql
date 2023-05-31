@@ -1,0 +1,4 @@
+CREATE TABLE sports (
+    ID IDENTITY NOT NULL PRIMARY KEY ,
+    name varchar(150) NOT NULL
+);
