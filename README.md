@@ -1,2 +1,2 @@
 # ap-assignment
-Associate Press Assignment
+Associated Press Assignment
