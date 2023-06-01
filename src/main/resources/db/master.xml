@@ -9,4 +9,6 @@
     <include file="db/changelog/202305311643_create_entity_player.sql" relativeToChangelogFile="false" />
     <include file="db/changelog/202305311643_create_entity_sport.sql" relativeToChangelogFile="false" />
     <include file="db/changelog/202305311643_create_entity_players_sport.sql" relativeToChangelogFile="false" />
+    <include file="db/changelog/202305311340_load_dummy_data.sql" relativeToChangelogFile="false" />
+
 </databaseChangeLog>
