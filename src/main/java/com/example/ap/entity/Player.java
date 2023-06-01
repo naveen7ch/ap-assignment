@@ -1,6 +1,7 @@
 package com.example.ap.entity;
 
 import com.example.ap.Gender;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
@@ -44,5 +45,6 @@ public class Player {
             name = "player_sports",
             joinColumns = @JoinColumn(name = "player_id"),
             inverseJoinColumns = @JoinColumn(name = "sports_id"))
+    @JsonIgnoreProperties("players")
     Set<Sports> sports;
 }

@@ -15,6 +15,7 @@
 	<description>Associated Press Assignment</description>
 	<properties>
 		<java.version>17</java.version>
+		<openap-webmvc-ui.version>2.1.0</openap-webmvc-ui.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -43,6 +44,11 @@
 		<dependency>
 			<groupId>jakarta.validation</groupId>
 			<artifactId>jakarta.validation-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>${openap-webmvc-ui.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
