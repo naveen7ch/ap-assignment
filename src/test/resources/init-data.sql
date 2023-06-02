@@ -3,7 +3,9 @@ values
 (1, 'john@test.com', 4, 24, 'Male'),
 (2, 'jane@test.com', 7, 32, 'Female'),
 (3, 'ramesh@test.com', 8, 22, 'Male'),
-(4, 'swathi@test.com', 6, 27, 'Female');
+(4, 'swathi@test.com', 6, 27, 'Female'),
+(5, 'vijay@test.com', 8, 17, 'Male'),
+(6, 'romi@test.com', 7, 18, 'Female');
 
 insert into sports (id, name)
 values

@@ -1,6 +1,7 @@
 package com.example.ap.controller;
 
 import com.example.ap.Gender;
+import com.example.ap.dto.PlayerDto;
 import com.example.ap.entity.Player;
 import com.example.ap.mapper.PlayerMapper;
 import com.example.ap.repository.PlayerRepository;
@@ -25,5 +26,9 @@ public class PlayerController {
         this.playerMapper = playerMapper;
     }
 
-
+    @GetMapping("/no-sports")
+    public ResponseEntity<List<PlayerDto>> playersWithNoSports() {
+        List<Player> players = playerRepository.findByNoSports().orElseThrow();
+        return ResponseEntity.ok(playerMapper.toDto(players));
+    }
 }
