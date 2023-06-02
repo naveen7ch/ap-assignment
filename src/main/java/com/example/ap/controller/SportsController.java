@@ -1,33 +1,31 @@
 package com.example.ap.controller;
 
-import com.example.ap.Gender;
-import com.example.ap.entity.Player;
 import com.example.ap.entity.Sports;
+import com.example.ap.mapper.SportsMapper;
 import com.example.ap.repository.SportsRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/sports")
 public class SportsController {
     private final SportsRepository sportsRepository;
+    private final SportsMapper sportsMapper;
 
-    public SportsController(SportsRepository sportsRepository) {
+    public SportsController(SportsRepository sportsRepository, SportsMapper sportsMapper) {
         this.sportsRepository = sportsRepository;
+        this.sportsMapper = sportsMapper;
     }
 
-    @GetMapping("/with-players-more-than-1")
-    public Optional<List<Sports>> getPlayersMoreThan1() {
-        return sportsRepository.findByPlayersMoreThan1();
+    @GetMapping
+    public ResponseEntity<List<Sports>> getByNames(@RequestParam List<String> names) {
+        System.out.println(names);
+        return ResponseEntity.ok(sportsRepository.findByNameIn(names).orElseThrow());
     }
 
-    @GetMapping("/with-no-players")
-    public Optional<List<Sports>> getNoPlayers() {
-        return sportsRepository.findByNoPlayers();
-    }
 }
