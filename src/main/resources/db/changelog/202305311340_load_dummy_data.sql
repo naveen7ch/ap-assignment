@@ -10,7 +10,9 @@ values
 (1, 'tennis'),
 (2, 'cricket'),
 (3, 'football'),
-(4, 'boxing');
+(4, 'boxing'),
+(5, 'badminton'),
+(6, 'hockey');
 
 insert into player_sports (player_id, sports_id)
 values

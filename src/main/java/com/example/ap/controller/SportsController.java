@@ -25,4 +25,9 @@ public class SportsController {
     public Optional<List<Sports>> getPlayersMoreThan1() {
         return sportsRepository.findByPlayersMoreThan1();
     }
+
+    @GetMapping("/with-no-players")
+    public Optional<List<Sports>> getNoPlayers() {
+        return sportsRepository.findByNoPlayers();
+    }
 }
