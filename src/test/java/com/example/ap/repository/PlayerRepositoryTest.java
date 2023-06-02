@@ -1,7 +1,7 @@
 package com.example.ap.repository;
 
 import com.example.ap.ApAssignmentApplication;
-import com.example.ap.Gender;
+import com.example.ap.entity.Gender;
 import com.example.ap.entity.Player;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

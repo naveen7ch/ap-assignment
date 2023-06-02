@@ -1,4 +1,4 @@
-package com.example.ap;
+package com.example.ap.entity;
 
 public enum Gender {
     Male,

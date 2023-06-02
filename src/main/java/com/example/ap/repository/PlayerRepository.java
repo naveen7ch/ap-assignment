@@ -1,6 +1,6 @@
 package com.example.ap.repository;
 
-import com.example.ap.Gender;
+import com.example.ap.entity.Gender;
 import com.example.ap.entity.Player;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

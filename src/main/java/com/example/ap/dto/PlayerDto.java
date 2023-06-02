@@ -1,6 +1,6 @@
 package com.example.ap.dto;
 
-import com.example.ap.Gender;
+import com.example.ap.entity.Gender;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;

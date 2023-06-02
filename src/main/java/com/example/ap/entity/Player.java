@@ -1,6 +1,5 @@
 package com.example.ap.entity;
 
-import com.example.ap.Gender;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -26,7 +25,7 @@ public class Player {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "player_sports",
             joinColumns = @JoinColumn(name = "player_id"),
