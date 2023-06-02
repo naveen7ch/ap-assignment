@@ -1,9 +1,12 @@
 package com.example.ap.controller;
 
+import com.example.ap.dto.SportsDto;
 import com.example.ap.entity.Sports;
+import com.example.ap.mapper.PlayerMapper;
 import com.example.ap.mapper.SportsMapper;
 import com.example.ap.repository.SportsRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,9 +26,9 @@ public class SportsController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Sports>> getByNames(@RequestParam List<String> names) {
-        System.out.println(names);
-        return ResponseEntity.ok(sportsRepository.findByNameIn(names).orElseThrow());
+    public ResponseEntity<List<SportsDto>> getByNames(@RequestParam List<String> names) {
+        List<Sports> sports = sportsRepository.findByNameIn(names).orElseThrow();
+        return ResponseEntity.ok(sportsMapper.toDto(sports));
     }
 
 }
