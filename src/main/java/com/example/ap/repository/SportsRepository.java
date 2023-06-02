@@ -12,4 +12,7 @@ import java.util.Optional;
 public interface SportsRepository extends JpaRepository<Sports, Long> {
     @Query("select s from Sports s where size(s.players) >= 2")
     public Optional<List<Sports>> findByPlayersMoreThan1();
+
+    @Query("select s from Sports s where size(s.players) = 0")
+    public Optional<List<Sports>> findByNoPlayers();
 }
