@@ -25,6 +25,8 @@ public class PlayerController {
         return playerRepository.findByGenderAndLevelAndAge(gender, level, age);
     }
 
+
+
     @GetMapping("/ping")
     public String ping() {
         return "pong";

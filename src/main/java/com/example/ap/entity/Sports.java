@@ -1,5 +1,6 @@
 package com.example.ap.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -21,8 +22,9 @@ public class Sports {
     @NotNull
     @Size(max = 150)
     private String name;
-    @ManyToMany(mappedBy = "sports")
+    @ManyToMany(mappedBy = "sports", fetch = FetchType.LAZY)
     @JsonIgnoreProperties("sports")
+    @JsonIgnore
     Set<Player> players;
 
 }
