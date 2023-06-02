@@ -15,4 +15,6 @@ public interface SportsRepository extends JpaRepository<Sports, Long> {
 
     @Query("select s from Sports s where size(s.players) = 0")
     public Optional<List<Sports>> findByNoPlayers();
+
+    public Optional<List<Sports>> findByNameIn(List<String> names);
 }

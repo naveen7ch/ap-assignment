@@ -1,10 +1,7 @@
 package com.example.ap.entity;
 
 import com.example.ap.Gender;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,23 +19,15 @@ public class Player {
     private Long id;
 
     @Column(nullable = false, length = 150)
-    @NotNull
-    @Size(max = 150)
-    @Email
     private String email;
 
     @Column(nullable = false)
-    @NotNull
-    @Min(1)
-    @Max(10)
     private Integer level;
 
     @Column(nullable = false)
-    @Min(1)
     private Integer age;
 
     @Enumerated(EnumType.STRING)
-    @NotNull
     private Gender gender;
 
     @ManyToMany
@@ -46,6 +35,5 @@ public class Player {
             name = "player_sports",
             joinColumns = @JoinColumn(name = "player_id"),
             inverseJoinColumns = @JoinColumn(name = "sports_id"))
-    @JsonIgnore
     Set<Sports> sports;
 }
