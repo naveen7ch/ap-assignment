@@ -13,7 +13,7 @@ import java.util.NoSuchElementException;
 public class ExceptionHandler extends ResponseEntityExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler({ NoSuchElementException.class })
-    public ResponseEntity<Object> handleAccessDeniedException(
+    public ResponseEntity<Object> noSuchElementException(
             NoSuchElementException ex, WebRequest request) {
         return new ResponseEntity<Object>(
                 "Unable to find entities relating to your query", new HttpHeaders(), HttpStatus.BAD_REQUEST);

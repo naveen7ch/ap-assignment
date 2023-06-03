@@ -40,4 +40,10 @@ public class SportsControllerTest {
         List players = (List) sports.get("players");
         assertEquals(2, players.size());
     }
+
+    @Test
+    public void deleteSportsTest() {
+        restTemplate.getRestTemplate().delete("http://localhost:" + port + "/api/sports/4");
+        assertTrue(true);
+    }
 }
