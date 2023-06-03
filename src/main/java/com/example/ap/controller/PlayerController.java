@@ -6,6 +6,7 @@ import com.example.ap.entity.Sports;
 import com.example.ap.mapper.PlayerMapper;
 import com.example.ap.mapper.SportsMapper;
 import com.example.ap.repository.PlayerRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -45,5 +46,11 @@ public class PlayerController {
         }).collect(Collectors.toList()));
         playerRepository.save(player);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<PlayerDto>> players(@RequestParam("sportsId") Long sportsId, Pageable pageable) {
+       List<Player> players = playerRepository.findBySports_Id(sportsId, pageable).orElseThrow();
+       return ResponseEntity.ok(playerMapper.toDto(players));
     }
 }

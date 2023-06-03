@@ -49,4 +49,13 @@ public class PlayerControllerTest {
                 Set.of(2, 1));
         assertTrue(true);
     }
+
+    @Test
+    public void getPlayersPaginatedTest() {
+        ResponseEntity<List> responseEntity = restTemplate.getRestTemplate().getForEntity("http://localhost:" + port + "/api/players?sportsId=1&page=0&size=2",
+                List.class);
+        assertEquals(HttpStatusCode.valueOf(200), responseEntity.getStatusCode());
+        assertTrue( responseEntity.hasBody());
+        assertEquals(2, responseEntity.getBody().size());
+    }
 }

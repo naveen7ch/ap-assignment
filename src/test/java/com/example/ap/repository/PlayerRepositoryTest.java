@@ -6,6 +6,7 @@ import com.example.ap.entity.Player;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.jdbc.Sql;
 
 import java.util.List;
@@ -37,6 +38,14 @@ public class PlayerRepositoryTest {
     @Test
     public void findByNoSportsTest() {
         List<Player> players = playerRepository.findByNoSports()
+                .orElse(null);
+        assertNotNull(players);
+        assertEquals(2, players.size());
+    }
+
+    @Test
+    public void findBySports_IdTest() {
+        List<Player> players = playerRepository.findBySports_Id(1l, Pageable.ofSize(2))
                 .orElse(null);
         assertNotNull(players);
         assertEquals(2, players.size());
