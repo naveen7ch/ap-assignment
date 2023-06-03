@@ -33,9 +33,6 @@ public class PlayerControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
 
-    @Autowired
-    private PlayerRepository playerRepository;
-
     @Test
     public void getPlayersWithNoSportsTest() {
         ResponseEntity<List> responseEntity = restTemplate.getRestTemplate().getForEntity("http://localhost:" + port + "/api/players/no-sports",
@@ -47,7 +44,6 @@ public class PlayerControllerTest {
 
 
     @Test
-    @Transactional
     public void updatePlayerSports() {
         restTemplate.getRestTemplate().put("http://localhost:" + port + "/api/players/4/sports",
                 Set.of(2, 1));
